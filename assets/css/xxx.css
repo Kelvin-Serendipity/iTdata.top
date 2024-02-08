@@ -1,8 +1,78 @@
 @media (max-width: 767px) {
-    .logo {
-      width: 50%;
-      margin-left: 0%;
-      box-sizing: content-box;
-      vertical-align: left;
-    }
+  .logo {
+    width: 50%;
+    margin-left: 0%;
+    box-sizing: content-box;
+    vertical-align: left;
   }
+}
+
+/* 搜索框 */
+
+.center-search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  padding: 0 48px 0 4px;
+  margin-top: 20px;
+  border-radius: 8px;
+  margin-left: 18%;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+}
+
+.center-search-container:hover {
+  background-color: #f8f8f8;
+}
+
+.center-search-container .nav-search-content {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.nav-search-content .nav-search-input {
+  flex: 1;
+  background-color: transparent;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.center-search-container .nav-search-button {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.center-search-container .nav-search-button:hover {
+  background-color: #cbcbcb;
+}
+
+.form-input {
+  flex: 1;
+  background-color: transparent;
+  line-height: 20px;
+  overflow: hidden;
+}
+/* END 搜索框 */
+
+.git {
+  flex: 1;
+  text-align: right;
+  /* padding-left: 50%; */
+}
+
+.github {
+  display: flex;
+}

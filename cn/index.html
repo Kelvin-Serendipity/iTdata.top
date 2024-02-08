@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../assets/css/xenon-skins.css">
     <link rel="stylesheet" href="../assets/css/nav.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/xxx.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -346,7 +347,7 @@
             </div>
         </div>
         <div class="main-content">
-            <nav class="navbar user-info-navbar" role="navigation">
+            <nav class="navbar user-info-navbar github" role="navigation">
                 <!-- User Info, Notifications and Menu Bar -->
                 <!-- Left links for user info navbar -->
                 <ul class="user-info-menu left-links list-inline list-unstyled">
@@ -373,23 +374,29 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="user-info-menu right-links list-inline list-unstyled">
+                <!-- 搜索框 -->
+                <ul class="center-search-container">
+                    <!-- 左侧搜索框 -->
+                    <form class="form-input" action="https://cn.bing.com/" method="get">
+                    <div class="nav-search-content">
+                        <input type="text" name="q" placeholder="请输入搜索内容" class="nav-search-input">
+                    </div>
+                    <!-- End 左侧搜索框 -->
+                    <!-- 右侧搜索按钮 -->
+                    <button type="submit" class="nav-search-button">
+                        <svg t="1707393974417" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1447" width="17" height="17"><path d="M131.41481 765.723624a448.753665 448.753665 0 0 0 492.189377 96.099976 442.97044 442.97044 0 0 0 110.74261-67.429945L951.279266 1011.449171a41.959144 41.959144 0 0 0 30.146599 12.304734 42.451334 42.451334 0 0 0 42.574381-42.574381 42.328286 42.328286 0 0 0-12.304734-30.146599L794.393901 734.223504A448.876712 448.876712 0 0 0 861.331657 273.903389 448.876712 448.876712 0 0 0 273.903635 35.314588 448.261476 448.261476 0 0 0 0.000246 448.630618a447.277097 447.277097 0 0 0 131.414564 317.093006zM85.272056 448.630618A363.358808 363.358808 0 1 1 448.630864 812.112473 363.604903 363.604903 0 0 1 85.272056 448.630618z" fill="#2c2c2c" p-id="1448"></path></svg>
+                    </button>
+                    <!-- END 右侧搜索按钮 -->
+                    </form>
+                </ul>
+                <!-- END 搜索框 -->
+                <ul class="user-info-menu right-links list-inline list-unstyled git">
                     <li class="hidden-sm hidden-xs">
-                        <a href="https://github.com/Kelvin-Serendipity" target="_blank">
+                        <a class="gits" href="https://github.com/Kelvin-Serendipity" target="_blank">
                             <i class="fa-github"></i> GitHub
                         </a>
                     </li>
                 </ul>
-                <!-- <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">
-                    <img style="position: absolute; top: 0; right: 0; border: 0;" 
-                         src="../assets/images/logos/github.png" 
-                         alt="Fork me on GitHub" 
-                         width="20" height="20">
-                    <span style="color: black;">Fork me on GitHub</span>
-                </a> -->
-
-
-
             </nav>
             <!-- 打赏 -->
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="#"></i>谢谢打赏</h4>
@@ -5427,8 +5434,6 @@
         </div>
     </div>
 </footer>
-</div>
-</div>
 <!-- 锚点平滑移动 -->
 <script type="text/javascript">
     $(document).ready(function () {
@@ -5503,6 +5508,5 @@
 <script src="../assets/js/xenon-custom.js"></script>
 <script src="../assets/js/lozad.js"></script>
 <script src="../assets/js/xxx.js"></script>
-</body>
 
 </html>
