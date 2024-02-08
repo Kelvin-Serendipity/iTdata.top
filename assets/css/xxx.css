@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+    .logo {
+      width: 50%;
+      margin-left: 0%;
+      box-sizing: content-box;
+      vertical-align: left;
+    }
+  }

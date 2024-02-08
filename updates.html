@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top - 版本更新公告</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #242424;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .text {
+            color: #fff;
+            padding-right: 45%;
+            font-size: 170%;
+
+            @media only screen and (max-width: 600px) {
+                font-size: 120%;
+                padding-left: 5px;
+                padding-right: 35%;
+            }
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            padding-left: 15px;
+
+            @media (max-width: 600px) {
+                width: 10%;
+                margin-top: -3px;
+                margin-left: 5px;
+            }
+        }
+
+        .update-entry {
+            margin-left: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 80px;
+        }
+
+        .version-number {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+
+        .update-date {
+            color: #888;
+        }
+
+        footer {
+            background-color: #242424;
+            color: #fff;
+            text-align: left;
+            /* 左对齐 */
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            /* 设置底栏高度 */
+            font-size: 12px;
+            /* 设置底栏字号 */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* 左右对齐 */
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .version-number,
+        .update-date,
+        .footer-text {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="./assets/images/logo-collapsed@2x.png" alt="Logo" class="logo">
+        <h1 class="text">版本更新公告</h1>
+    </header>
+
+    <script>
+        var updates = [
+            {
+                version: '1.1.2',
+                date: '2024-02-05',
+                changes: ['首页新增跳转站主bilibil主页的超链接', '修复bug', '修复安全漏洞', '优化程序', '6、英文界面暂停更新']
+            },
+            {
+                version: '1.1.1',
+                date: '2024-02-05',
+                changes: ['添加【编程语言】栏目的各大项内容各2-3个，均为教程，后续会逐渐增多', '修复bug', '修复安全漏洞', '优化程序，提高了页面流畅度', '6、英文界面暂停更新']
+            },
+            {
+                version: '1.1.0',
+                date: '2024-02-05',
+                changes: ['1、导航栏新增了【编程语言】栏目', '2、【编程语言】栏目新增8大项（8大项中的内容会陆续增添，详情见后续更新公告）', '3、首页新增【打赏】界面', '4、新增【意见反馈】入口（在打赏页面内）', '5、调整了导航栏顺序', '6、英文界面暂停更新']
+            },
+            {
+                version: '1.0.9',
+                date: '2024-02-05',
+                changes: ['页面微调']
+            },
+            {
+                version: '1.0.8',
+                date: '2024-02-05',
+                changes: ['提高了页面与设备的适配度']
+            },
+            {
+                version: '1.0.7',
+                date: '2024-02-05',
+                changes: ['新增功能：查看版本更新', '修复 Bug', '优化性能']
+            },
+            {
+                version: '1.0.6',
+                date: '2024-02-04',
+                changes: ['新增：手机、平板端适配', '修复 Bug', '优化性能']
+            },
+            {
+                version: '1.0.5',
+                date: '2024-01-20',
+                changes: ['修复 Bug 若干', '优化性能', '安全漏洞修复']
+            },
+            {
+                version: '1.0.4',
+                date: '2024-01-19',
+                changes: ['修复 Bug 若干', '安全漏洞修复', '优化性能']
+            },
+            {
+                version: '1.0.3',
+                date: '2024-01-18',
+                changes: ['修复 Bug 若干', '优化性能', '安全漏洞修复']
+            },
+            {
+                version: '1.0.2',
+                date: '2024-01-17',
+                changes: ['修复 Bug 若干', '安全漏洞修复', '优化性能']
+            },
+            {
+                version: '1.0.1',
+                date: '2024-01-16',
+                changes: ['修复 Bug 若干', '优化性能', '安全漏洞修复']
+            },
+            {
+                version: '1.0.0',
+                date: '2024-01-10',
+                changes: ['修复 Bug 若干', '优化性能', '安全漏洞修复']
+            }
+        ];
+
+        updates.forEach(function (update) {
+            var updateEntry = document.createElement('div');
+            updateEntry.classList.add('update-entry');
+
+            var versionNumber = document.createElement('div');
+            versionNumber.classList.add('version-number');
+            versionNumber.textContent = '版本号: ' + update.version;
+
+            var updateDate = document.createElement('p');
+            updateDate.classList.add('update-date');
+            updateDate.textContent = '更新日期: ' + update.date;
+
+            var changesList = document.createElement('ul');
+            update.changes.forEach(function (change) {
+                var changeItem = document.createElement('li');
+                changeItem.textContent = change;
+                changesList.appendChild(changeItem);
+            });
+
+            updateEntry.appendChild(versionNumber);
+            updateEntry.appendChild(updateDate);
+            updateEntry.appendChild(changesList);
+
+            document.body.appendChild(updateEntry);
+        });
+    </script>
+
+    <footer>
+        <div class="footer-text">
+            &copy; 2023-2024
+            <a href="./cn/about.html"><strong>iTData</strong></a> design by <a
+                href="https://github.com/Kelvin-Serendipity" target="_blank"><strong>Kelvin</strong></a>
+            <p></p>
+            <a href="#">
+                <strong class="version-update">
+                    版本号：1.0.6
+                </strong>
+            </a>
+        </div>
+    </footer>
+    <script src="./assets/js/xxx.js"></script>
+</body>
+
+</html>
