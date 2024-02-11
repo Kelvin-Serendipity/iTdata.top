@@ -297,6 +297,18 @@
     fistForm.addEventListener("submit", (e) => e.preventDefault());
     secondForm.addEventListener("submit", (e) => e.preventDefault());
 
+    // 获取链接元素的引用
+const signInLink = document.querySelector('.container--signup .link');
+const signUpLink = document.querySelector('.container--signin .link');
+
+// 为链接元素添加点击事件监听器
+signInLink.addEventListener('click', () => {
+    container.classList.remove('right-panel-active');
+});
+
+signUpLink.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+});
 </script>
 
 </html>
