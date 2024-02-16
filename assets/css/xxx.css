@@ -95,6 +95,45 @@
 }
 
 .signin:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   color: #ffffff;
+}
+
+a.title {
+  font-weight: 600;
+}
+
+a.title:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+a.title:hover i,
+a.title:hover span {
+  color: #fb7299;
+}
+
+.text-gray {
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.text-gray:hover {
+  cursor: pointer;
+  color: #fb7299;
+}
+
+.navbar {
+  height: 80px;
+}
+
+footer.main-footer {
+  height: 70px;
+  padding: 15px 20px;
 }
