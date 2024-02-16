@@ -75,6 +75,7 @@
 
 .github {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .signin {
@@ -137,3 +138,85 @@ footer.main-footer {
   height: 70px;
   padding: 15px 20px;
 }
+
+/* 滚动公告条 */
+
+.announcement {
+  border: 2px solid #868686;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  width: 30%;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.marquee {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee p {
+  color: #888888;
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.bar {}
+
+/* END 滚动公告条 */
+
+/* 侧边固定内容条 */
+
+.side-bar {
+  position: fixed;
+  bottom: 80px;
+  right: 12px;
+}
+
+.primary-btn {
+  width: 52px;
+  height: 52px;
+  margin-top: 6px;
+  padding: 6px 0 4px;
+  box-sizing: border-box;
+  border: 1px solid #e3e5e7;
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  box-shadow: 0 2px 5px 0 rgba(0, 36, 100, 0.3);
+  transition: all 0.3s ease;
+}
+
+.side-bar-text {
+  padding-top: 4px;
+}
+
+/* END 侧边固定内容条 */
