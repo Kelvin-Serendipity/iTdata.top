@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top-长度转换器（万能）</title>
+    <link rel="icon" href="../assets/images/logo-collapsed@2x.png" type="image/x-icon">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #313131;
+        }
+
+        .Length-text {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        input {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            padding: 2px 90px 2PX 15px;
+            border-radius: 10px;
+            outline: none;
+            color: #000000;
+        }
+
+        input:hover {
+            background-color: #f1f1f1;
+        }
+
+        #Length-unit {
+            position: absolute;
+            box-sizing: border-box;
+            margin-right: 5px;
+            right: 0;
+            transform: translateY(13%);
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: #d6d6d6;
+        }
+
+        #Length-unit:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Length-Enter {
+            position: relative;
+            width: 400px;
+            height: 50px;
+            margin: 0px auto;
+        }
+
+        .result-text {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .nm {
+            background-color: #ff0000;
+        }
+
+        .um {
+            background-color: #1c741c;
+        }
+
+        .mm {
+            background-color: #0000ff;
+        }
+
+        .cm {
+            background-color: #ff7b00;
+        }
+
+        .dm {
+            background-color: #ff00ff;
+        }
+
+        .m {
+            background-color: #491375;
+        }
+
+        .km {
+            background-color: #ff0000;
+        }
+
+        .in {
+            background-color: #00575e;
+        }
+
+        .ft {
+            background-color: #99a6c5;
+        }
+
+        .unit-text {
+            margin: 10px 0 0 0;
+            height: 50px;
+            width: 95%;
+            padding-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .span-a-text {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 15px;
+        }
+
+        .a-text {
+            text-decoration: none;
+            color: #ffffff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Length">
+            <h1 class="Length-text">长度转换器</h1>
+            <span class="span-a-text"><a class="a-text" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
+            <div class="Length-Enter">
+                <input type="text" id="Length-Input" placeholder="请输入数字...">
+                <select name="Length-unit" id="Length-unit">
+                    <option value="nm">纳米</option>
+                    <option value="um">微米</option>
+                    <option value="mm">毫米</option>
+                    <option value="cm">厘米</option>
+                    <option value="dm">分米</option>
+                    <option value="m">米</option>
+                    <option value="km">千米</option>
+                    <option value="in">英寸</option>
+                    <option value="ft">英尺</option>
+                </select>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('Length-Input').addEventListener('input', convertLength);
+    document.getElementById('Length-unit').addEventListener('change', convertLength);
+
+    function convertLength() {
+        var input = parseFloat(document.getElementById('Length-Input').value);
+        var unit = document.getElementById('Length-unit').value;
+
+        var result = [];
+        switch (unit) {
+            case 'nm':
+                result.push('<br><br><br><div class="um unit-text"><span class="result-text">微米：</span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10000000) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100000000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000000000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25400000) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304800000) + '</div>');
+                break;
+            case 'um':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10000) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25400) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304800) + '</div>');
+                break;
+            case 'mm':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25.4) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304.8) + '</div>');
+                break;
+            case 'cm':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 10000000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 10000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 10) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 10) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 100) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 100000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 2.54) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 30.48) + '</div>');
+                break;
+            case 'dm':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 100000000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 100000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 100) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 10) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 10) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 10000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 0.254) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 3.048) + '</div>');
+                break;
+            case 'm':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 100) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 10) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 39.37) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input * 3.281) + '</div>');
+                break;
+            case 'km':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000000000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 100000) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 10000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 39370) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input * 3281) + '</div>');
+                break;
+            case 'in':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 25400000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 25400) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 25.4) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 2.54) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 0.254) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 39.37) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 39370) + '</div>');
+                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 12) + '</div>');
+                break;
+            case 'ft':
+                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 304800000) + '</div>');
+                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 304800) + '</div>');
+                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 304.8) + '</div>');
+                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 30.48) + '</div>');
+                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 3.048) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 3.281) + '</div>');
+                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 3281) + '</div>');
+                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 12) + '</div>');
+                break;
+        }
+        document.getElementById('result').innerHTML = result.join('');
+    }
+
+    document.getElementById('Length-Input').addEventListener('input', function () {
+        var input = document.getElementById('Length-Input').value;
+        var resultDiv = document.getElementById('result');
+        if (input === '' || isNaN(input)) {
+            resultDiv.style.display = 'none';
+        } else {
+            resultDiv.style.display = 'block';
+            convertLength();
+        }
+    });
+</script>
+
+</html>
