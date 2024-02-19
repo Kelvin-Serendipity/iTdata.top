@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top-(多)单位转换器</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #313131;
+        }
+
+        .Weight-text {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        input {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            padding: 2px 20px;
+            color: #000000;
+        }
+
+        input:hover {
+            background-color: #f1f1f1;
+        }
+
+        #Weight-unit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+        }
+
+        #Weight-unit:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Weight-Enter {
+            position: relative;
+            width: 400px;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Weight">
+            <h1 class="Weight-text">重量转换器</h1>
+            <div class="Weight-Enter">
+                <input type="text" id="Weight-Input" placeholder="请输入数字...">
+                <select name="Weight-unit" id="Weight-unit">
+                    <option value="g">克</option>
+                    <option value="kg">千克</option>
+                    <option value="t">吨</option>
+                    <option value="lb">磅</option>
+                    <option value="oz">盎司</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
