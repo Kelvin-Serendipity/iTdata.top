@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top-温度转换器（万能）</title>
+    <link rel="icon" href="../assets/images/logo-collapsed@2x.png" type="image/x-icon">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #313131;
+        }
+
+        .Temp-text {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        input {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            padding: 2px 90px 2PX 15px;
+            border-radius: 10px;
+            outline: none;
+            color: #000000;
+        }
+
+        input:hover {
+            background-color: #f1f1f1;
+        }
+
+        #Temp-unit {
+            position: absolute;
+            box-sizing: border-box;
+            margin-right: 5px;
+            right: 0;
+            transform: translateY(13%);
+            width: 80px;
+            height: 40px;
+            font-size: 15px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: #d6d6d6;
+        }
+
+        #Temp-unit:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Temp-Enter {
+            position: relative;
+            width: 400px;
+            height: 50px;
+            margin: 0px auto;
+        }
+
+        .result-text {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .c {
+            background-color: #ff0000;
+        }
+
+        .f {
+            background-color: #1c741c;
+        }
+
+        .k {
+            background-color: #0000ff;
+        }
+
+        .unit-text {
+            margin: 10px 0 0 0;
+            height: 50px;
+            width: 95%;
+            padding-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .a-text {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .a-text-1 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 15px;
+        }
+
+        .a-text-2 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 30px;
+            font-size: 15px;
+        }
+
+        .a-text-3 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 50px;
+            font-size: 15px;
+        }
+
+        .a-text-4 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 70px;
+            font-size: 15px;
+        }
+
+        .a-text-5 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 90px;
+            font-size: 15px;
+        }
+
+        .a-text-6 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 110px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Temp">
+            <h1 class="Temp-text">温度转换器</h1>
+            <span class="span-a-text"><a class="a-text-1" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
+            <span class="span-a-text"><a class="a-text-2" href="./Unit_Converyer_Length.html">长度转换器</a></span>
+            <span class="span-a-text"><a class="a-text-3" href="./Unit_Converyer_Time.html">时间转换器</a></span>
+            <span class="span-a-text"><a class="a-text-4" href="./Unit_Converyer_Temp.html">数据转换器</a></span>
+            <span class="span-a-text"><a class="a-text-5" href="./Unit_Converyer_Temp.html">货币转换器</a></span>
+            <span class="span-a-text"><a class="a-text-6" href="./Unit_Converyer_Temp.html">能量转换器</a></span>
+            <div class="Temp-Enter">
+                <input type="text" id="Temp-Input" placeholder="请输入数字...">
+                <select name="Temp-unit" id="Temp-unit">
+                    <option value="c">摄氏度</option>
+                    <option value="f">华氏度</option>
+                    <option value="k">开尔文</option>
+                </select>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('Temp-Input').addEventListener('input', convertTemp);
+    document.getElementById('Temp-unit').addEventListener('change', convertTemp);
+
+    function convertTemp() {
+        var input = parseFloat(document.getElementById('Temp-Input').value);
+        var unit = document.getElementById('Temp-unit').value;
+
+        var result = [];
+        switch (unit) {
+            case 'c':
+                result.push('<br><br><br><div class="f unit-text"><span class="result-text">华氏度：</span><br>' + (input * 1.8 + 32) + '</div>');
+                result.push('<div class="k unit-text"><span class="result-text">开尔文: </span><br>' + (input + 273.15) + '</div>');
+                break;
+            case 'f':
+                result.push('<br><br><br><div class="c unit-text"><span class="result-text">摄氏度：</span><br>' + (input - 32) * 5 / 9 + '</div>');
+                result.push('<div class="k unit-text"><span class="result-text">开尔文: </span><br>' + (input + 459.67) * 5 / 9 + '</div>');
+                break;
+            case 'k':
+                result.push('<br><br><br><div class="c unit-text"><span class="result-text">摄氏度：</span><br>' + (input - 273.15) + '</div>');
+                result.push('<div class="f unit-text"><span class="result-text">华氏度: </span><br>' + ((input * 9 / 5) - 459.67) + '</div>');
+                break;
+        }
+        document.getElementById('result').innerHTML = result.join('');
+    }
+
+    document.getElementById('Temp-Input').addEventListener('input', function () {
+        var input = document.getElementById('Temp-Input').value;
+        var resultDiv = document.getElementById('result');
+        if (input === '' || isNaN(input)) {
+            resultDiv.style.display = 'none';
+        } else {
+            resultDiv.style.display = 'block';
+            convertTemp();
+        }
+    });
+</script>
+
+</html>

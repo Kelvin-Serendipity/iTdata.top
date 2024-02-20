@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top-时间转换器（万能）</title>
+    <link rel="icon" href="../assets/images/logo-collapsed@2x.png" type="image/x-icon">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #313131;
+        }
+
+        .Time-text {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        input {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            padding: 2px 90px 2PX 15px;
+            border-radius: 10px;
+            outline: none;
+            color: #000000;
+        }
+
+        input:hover {
+            background-color: #f1f1f1;
+        }
+
+        #Time-unit {
+            position: absolute;
+            box-sizing: border-box;
+            margin-right: 5px;
+            right: 0;
+            transform: translateY(13%);
+            width: 80px;
+            height: 40px;
+            font-size: 15px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: #d6d6d6;
+        }
+
+        #Time-unit:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Time-Enter {
+            position: relative;
+            width: 400px;
+            height: 50px;
+            margin: 0px auto;
+        }
+
+        .result-text {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .ms {
+            background-color: #ff0000;
+        }
+
+        .s {
+            background-color: #1c741c;
+        }
+
+        .m {
+            background-color: #0000ff;
+        }
+
+        .h {
+            background-color: #ff7b00;
+        }
+
+        .d {
+            background-color: #ff00ff;
+        }
+
+        .w {
+            background-color: #491375;
+        }
+
+        .mo {
+            background-color: #ff0000;
+        }
+
+        .y {
+            background-color: #00575e;
+        }
+
+        .unit-text {
+            margin: 10px 0 0 0;
+            height: 50px;
+            width: 95%;
+            padding-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .a-text {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .a-text-1 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 15px;
+        }
+
+        .a-text-2 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 30px;
+            font-size: 15px;
+        }
+
+        .a-text-3 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 50px;
+            font-size: 15px;
+        }
+
+        .a-text-4 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 70px;
+            font-size: 15px;
+        }
+
+        .a-text-5 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 90px;
+            font-size: 15px;
+        }
+
+        .a-text-6 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 110px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Time">
+            <h1 class="Time-text">时间转换器</h1>
+            <span class="span-a-text"><a class="a-text-1" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
+            <span class="span-a-text"><a class="a-text-2" href="./Unit_Converyer_Length.html">长度转换器</a></span>
+            <span class="span-a-text"><a class="a-text-3" href="./Unit_Converyer_Temp.html">温度转换器</a></span>
+            <span class="span-a-text"><a class="a-text-4" href="./Unit_Converyer_Temp.html">数据转换器</a></span>
+            <span class="span-a-text"><a class="a-text-5" href="./Unit_Converyer_Temp.html">货币转换器</a></span>
+            <span class="span-a-text"><a class="a-text-6" href="./Unit_Converyer_Temp.html">能量转换器</a></span>
+            <div class="Time-Enter">
+                <input type="text" id="Time-Input" placeholder="请输入数字...">
+                <select name="Time-unit" id="Time-unit">
+                    <option value="ms">毫秒</option>
+                    <option value="s">秒</option>
+                    <option value="m">分钟</option>
+                    <option value="h">小时</option>
+                    <option value="d">天</option>
+                    <option value="w">周</option>
+                    <option value="mo">月</option>
+                    <option value="y">年</option>
+                </select>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('Time-Input').addEventListener('input', convertTime);
+    document.getElementById('Time-unit').addEventListener('change', convertTime);
+
+    function convertTime() {
+        var input = parseFloat(document.getElementById('Time-Input').value);
+        var unit = document.getElementById('Time-unit').value;
+
+        var result = [];
+        switch (unit) {
+            case 'ms':
+                result.push('<div class="s unit-text"><span class="result-text">秒：</span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input / 60000) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input / 3600000) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input / 86400000) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input / 604800000) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 2628000000) + '</div>');
+                result.push('<div class="y unit-text"><span class="result-text">年: </span><br>' + (input / 31536000000) + '</div>');
+                break;
+            case 's':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input / 60) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input / 3600) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input / 86400) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input / 604800) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 2628000) + '</div>');
+                result.push('<div class="y unit-text"><span class="result-text">年: </span><br>' + (input / 31536000) + '</div>');
+                break;
+            case 'm':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 60000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 60) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input / 60) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input / 1440) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input / 10080) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 43800) + '</div>');
+                break;
+            case 'h':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 3600000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 3600) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input * 60) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input / 24) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input / 168) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 730) + '</div>');
+                break;
+            case 'd':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 86400000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 86400) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input * 1440) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input * 24) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input / 7) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 30.44) + '</div>');
+                break;
+            case 'w':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 604800000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 604800) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input * 10080) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input * 168) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input * 7) + '</div>');
+                result.push('<div class="mo unit-text"><span class="result-text">月: </span><br>' + (input / 4.345) + '</div>');
+                break;
+            case 'mo':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 2628000000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 2628000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input * 43800) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input * 730) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input * 30.44) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input * 4.345) + '</div>');
+                break;
+            case 'y':
+                result.push('<div class="ms unit-text"><span class="result-text">毫秒：</span><br>' + (input * 31536000000) + '</div>');
+                result.push('<div class="s unit-text"><span class="result-text">秒: </span><br>' + (input * 31536000) + '</div>');
+                result.push('<div class="m unit-text"><span class="result-text">分钟: </span><br>' + (input * 525600) + '</div>');
+                result.push('<div class="h unit-text"><span class="result-text">小时: </span><br>' + (input * 8760) + '</div>');
+                result.push('<div class="d unit-text"><span class="result-text">天: </span><br>' + (input * 365) + '</div>');
+                result.push('<div class="w unit-text"><span class="result-text">周: </span><br>' + (input * 52.143) + '</div>');
+        }
+        document.getElementById('result').innerHTML = result.join('');
+    }
+
+    document.getElementById('Time-Input').addEventListener('input', function () {
+        var input = document.getElementById('Time-Input').value;
+        var resultDiv = document.getElementById('result');
+        if (input === '' || isNaN(input)) {
+            resultDiv.style.display = 'none';
+        } else {
+            resultDiv.style.display = 'block';
+            convertTime();
+        }
+    });
+</script>
+
+</html>
