@@ -187,7 +187,7 @@
             <span class="span-a-text"><a class="a-text-2" href="./Unit_Converyer_Temp.html">温度转换器</a></span>
             <span class="span-a-text"><a class="a-text-3" href="./Unit_Converyer_Time.html">时间转换器</a></span>
             <span class="span-a-text"><a class="a-text-4" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
-            <span class="span-a-text"><a class="a-text-6" href="./Unit_Converyer_Length.html">能量转换器</a></span>
+            <span class="span-a-text"><a class="a-text-5" href="./Unit_Converyer_Length.html">能量转换器</a></span>
             <div class="Data-Enter">
                 <input type="text" id="Data-Input" placeholder="请输入数字...">
                 <select name="Data-unit" id="Data-unit">
@@ -294,8 +294,17 @@
                 result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000) + '</div>');
                 result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000) + '</div>');
                 break;
-        
-
+            case 'EB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000000000000000000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000000000000000000) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1000000000000000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1000000000000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000) + '</div>');
+                break;
             case 'ZB':
                 result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8e21) + '</div>');
                 result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1e21) + '</div>');
