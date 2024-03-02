@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTdata.top-数据转换器（万能）</title>
+    <link rel="icon" href="../assets/images/logo-collapsed@2x.png" type="image/x-icon">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #313131;
+        }
+
+        .Data-text {
+            text-align: center;
+            font-size: 50px;
+            font-Data: 700;
+            color: #ffffff;
+        }
+
+        input {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            padding: 2px 90px 2PX 15px;
+            border-radius: 10px;
+            outline: none;
+            color: #000000;
+        }
+
+        input:hover {
+            background-color: #f1f1f1;
+        }
+
+        #Data-unit {
+            position: absolute;
+            box-sizing: border-box;
+            margin-right: 5px;
+            right: 0;
+            transform: translateY(13%);
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: #d6d6d6;
+        }
+
+        #Data-unit:hover {
+            background-color: #f1f1f1;
+        }
+
+        .Data-Enter {
+            position: relative;
+            width: 400px;
+            height: 50px;
+            margin: 0px auto;
+        }
+
+        .result-text {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .b {
+            background-color: #6e4902;
+        }
+
+        .B {
+            background-color: #1c741c;
+        }
+
+        .KB {
+            background-color: #0000ff;
+        }
+
+        .MB {
+            background-color: #ff7b00;
+        }
+
+        .GB {
+            background-color: #ff00ff;
+        }
+
+        .TB {
+            background-color: #491375;
+        }
+
+        .PB {
+            background-color: #ff0000;
+        }
+
+        .EB {
+            background-color: #00575e;
+        }
+
+        .ZB {
+            background-color: #99a6c5;
+        }
+
+        .YB {
+            background-color: #6d0101;
+        }
+
+        .unit-text {
+            margin: 10px 0 0 0;
+            height: 50px;
+            width: 95%;
+            padding-left: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .a-text-1 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 15px;
+        }
+
+        .a-text-2 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 30px;
+            font-size: 15px;
+        }
+
+        .a-text-3 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 50px;
+            font-size: 15px;
+        }
+
+        .a-text-4 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 70px;
+            font-size: 15px;
+        }
+
+        .a-text-5 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 90px;
+            font-size: 15px;
+        }
+
+        .a-text-6 {
+            text-decoration: none;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            top: 110px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Data">
+            <h1 class="Data-text">数据转换器</h1>
+            <span class="span-a-text"><a class="a-text-1" href="./Unit_Converyer_Length.html">长度转换器</a></span>
+            <span class="span-a-text"><a class="a-text-2" href="./Unit_Converyer_Temp.html">温度转换器</a></span>
+            <span class="span-a-text"><a class="a-text-3" href="./Unit_Converyer_Time.html">时间转换器</a></span>
+            <span class="span-a-text"><a class="a-text-4" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
+            <span class="span-a-text"><a class="a-text-6" href="./Unit_Converyer_Length.html">能量转换器</a></span>
+            <div class="Data-Enter">
+                <input type="text" id="Data-Input" placeholder="请输入数字...">
+                <select name="Data-unit" id="Data-unit">
+                    <option value="b">b</option>
+                    <option value="B">B</option>
+                    <option value="KB">KB</option>
+                    <option value="MB">MB</option>
+                    <option value="GB">GB</option>
+                    <option value="TB">TB</option>
+                    <option value="PB">PB</option>
+                    <option value="EB">EB</option>
+                    <option value="ZB">ZB</option>
+                    <option value="YB">YB</option>
+                </select>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('Data-Input').addEventListener('input', convertData);
+    document.getElementById('Data-unit').addEventListener('change', convertData);
+
+    function convertData() {
+        var input = parseFloat(document.getElementById('Data-Input').value);
+        var unit = document.getElementById('Data-unit').value;
+
+        var result = [];
+        switch (unit) {
+            case 'b':
+                result.push('<br><br><br><div class="B unit-text"><span class="result-text">B: </span><br>' + (input / 8) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input / 8000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input / 8000000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input / 8000000000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input / 8000000000000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 8000000000000000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 8000000000000000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 8000000000000000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 8000000000000000000000000) + '</div>');
+                break;
+            case 'B':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input / 1000000000000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 1000000000000000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000000000000000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000000000000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000000000000000000) + '</div>');
+                break;
+            case 'KB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 1000000000000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000000000000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000000000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000000000000000) + '</div>');
+                break;
+            case 'MB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000000000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000000000000) + '</div>');
+                break;
+            case 'GB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000000000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000000000) + '</div>');
+                break;
+            case 'TB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000000000000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000000000000) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000000) + '</div>');
+                break;
+            case 'PB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8000000000000000) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1000000000000000) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1000000000000) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1000000000) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input * 1000000) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input / 1000000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000000000) + '</div>');
+                break;
+        
+
+            case 'ZB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8e21) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1e21) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1e18) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1e15) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input * 1e12) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input * 1e9) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input * 1e6) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="YB unit-text"><span class="result-text">YB: </span><br>' + (input / 1000) + '</div>');
+                break;
+            case 'YB':
+                result.push('<br><br><br><div class="b unit-text"><span class="result-text">b: </span><br>' + (input * 8e24) + '</div>');
+                result.push('<div class="B unit-text"><span class="result-text">B: </span><br>' + (input * 1e24) + '</div>');
+                result.push('<div class="KB unit-text"><span class="result-text">KB: </span><br>' + (input * 1e21) + '</div>');
+                result.push('<div class="MB unit-text"><span class="result-text">MB: </span><br>' + (input * 1e18) + '</div>');
+                result.push('<div class="GB unit-text"><span class="result-text">GB: </span><br>' + (input * 1e15) + '</div>');
+                result.push('<div class="TB unit-text"><span class="result-text">TB: </span><br>' + (input * 1e12) + '</div>');
+                result.push('<div class="PB unit-text"><span class="result-text">PB: </span><br>' + (input * 1e9) + '</div>');
+                result.push('<div class="EB unit-text"><span class="result-text">EB: </span><br>' + (input * 1e6) + '</div>');
+                result.push('<div class="ZB unit-text"><span class="result-text">ZB: </span><br>' + (input * 1000) + '</div>');
+                break;
+        }
+        document.getElementById('result').innerHTML = result.join('');
+    }
+        document.getElementById('Data-Input').addEventListener('input', function () {
+            var input = document.getElementById('Data-Input').value;
+            var resultDiv = document.getElementById('result');
+            if (input === '' || isNaN(input)) {
+                resultDiv.style.display = 'none';
+            } else {
+                resultDiv.style.display = 'block';
+                convertData();
+            }
+        });
+</script>
+
+</html>
