@@ -78,7 +78,7 @@
             background-color: #ff0000;
         }
 
-        .KJ {
+        .kj {
             background-color: #1c741c;
         }
 
@@ -193,14 +193,14 @@
                 <input type="text" id="Energy-Input" placeholder="请输入数字...">
                 <select name="Energy-unit" id="Energy-unit">
                     <option value="J">焦耳</option>
-                    <option value="kJ">千焦</option>
+                    <option value="kj">千焦</option>
                     <option value="cal">卡路里</option>
                     <option value="kcal">千卡</option>
-                    <option value="Wh">瓦特小时</option>
+                    <option value="Wh">瓦时</option>
                     <option value="kWh">千瓦时</option>
-                    <option value="BTU">英热单位</option>
-                    <option value="ftlb">英尺·磅</option>
-                    <option value="inlb">英寸·磅</option>
+                    <option value="BTU">英热</option>
+                    <option value="ftlb">英尺磅</option>
+                    <option value="inlb">英寸磅</option>
                 </select>
                 <div id="result"></div>
             </div>
@@ -218,97 +218,97 @@
         var result = [];
         switch (unit) {
             case 'J':
-                result.push({ unit: 'kJ', value: input / 1000 });
-                result.push({ unit: 'cal', value: input / 4.184 });
-                result.push({ unit: 'kcal', value: input / 4184 });
-                result.push({ unit: 'Wh', value: input / 3600 });
-                result.push({ unit: 'kWh', value: input / 3600000 });
-                result.push({ unit: 'BTU', value: input / 1055 });
-                result.push({ unit: 'ftlb', value: input / 1.356 });
-                result.push({ unit: 'inlb', value: input / 0.113 });
+                result.push('<br><br><br><div class="kj unit-text"><span class="result-text">千焦：</span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input / 4.184) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input / 4184) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input / 3600) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input / 3600000) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input / 1055) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input / 1.356) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input / 0.113) + '</div>');
                 break;
-            case 'kJ':
-                result.push({ unit: 'J', value: input * 1000 });
-                result.push({ unit: 'cal', value: input * 239 });
-                result.push({ unit: 'kcal', value: input / 4.184 });
-                result.push({ unit: 'Wh', value: input / 3.6 });
-                result.push({ unit: 'kWh', value: input / 3600 });
-                result.push({ unit: 'BTU', value: input * 0.9478 });
-                result.push({ unit: 'ftlb', value: input * 738 });
-                result.push({ unit: 'inlb', value: input * 8850 });
+            case 'kj':
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 239) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 0.239) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 0.2778) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.0002778) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 0.9478) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 737.6) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 8850) + '</div>');
                 break;
             case 'cal':
-                result.push({ unit: 'J', value: input * 4.184 });
-                result.push({ unit: 'kJ', value: input / 239 });
-                result.push({ unit: 'kcal', value: input / 1000 });
-                result.push({ unit: 'Wh', value: input / 860 });
-                result.push({ unit: 'kWh', value: input / 860420 });
-                result.push({ unit: 'BTU', value: input / 252 });
-                result.push({ unit: 'ftlb', value: input * 3.086 });
-                result.push({ unit: 'inlb', value: input * 37.03 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 4.184) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 0.004184) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 0.001162) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.000001162) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 0.003966) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 3.086) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 37.03) + '</div>');
                 break;
             case 'kcal':
-                result.push({ unit: 'J', value: input * 4184 });
-                result.push({ unit: 'kJ', value: input * 4.184 });
-                result.push({ unit: 'cal', value: input * 1000 });
-                result.push({ unit: 'Wh', value: input * 1.162 });
-                result.push({ unit: 'kWh', value: input / 860 });
-                result.push({ unit: 'BTU', value: input * 3.968 });
-                result.push({ unit: 'ftlb', value: input * 3086 });
-                result.push({ unit: 'inlb', value: input * 37030 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 4184) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 4.184) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 1.162) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.001162) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 3.966) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 3086) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 37030) + '</div>');
                 break;
             case 'Wh':
-                result.push({ unit: 'J', value: input * 3600 });
-                result.push({ unit: 'kJ', value: input * 3.6 });
-                result.push({ unit: 'cal', value: input * 860 });
-                result.push({ unit: 'kcal', value: input / 1.162 });
-                result.push({ unit: 'kWh', value: input / 1000 });
-                result.push({ unit: 'BTU', value: input * 3.412 });
-                result.push({ unit: 'ftlb', value: input * 2655 });
-                result.push({ unit: 'inlb', value: input * 31824 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 3600) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 3.6) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 860.4) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 0.8604) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input / 1000) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 3.412) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 2655) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 31840) + '</div>');
                 break;
             case 'kWh':
-                result.push({ unit: 'J', value: input * 3600000 });
-                result.push({ unit: 'kJ', value: input * 3600 });
-                result.push({ unit: 'cal', value: input * 860420 });
-                result.push({ unit: 'kcal', value: input * 860 });
-                result.push({ unit: 'Wh', value: input * 1000 });
-                result.push({ unit: 'BTU', value: input * 3412 });
-                result.push({ unit: 'ftlb', value: input * 2655224 });
-                result.push({ unit: 'inlb', value: input * 31827800 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 3600000) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 3600) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 860420) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 860.4) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 1000) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 3412) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 2655000) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 31840000) + '</div>');
                 break;
             case 'BTU':
-                result.push({ unit: 'J', value: input * 1055 });
-                result.push({ unit: 'kJ', value: input * 1.055 });
-                result.push({ unit: 'cal', value: input * 252 });
-                result.push({ unit: 'kcal', value: input / 3.968 });
-                result.push({ unit: 'Wh', value: input / 3.412 });
-                result.push({ unit: 'kWh', value: input / 3412 });
-                result.push({ unit: 'ftlb', value: input * 778 });
-                result.push({ unit: 'inlb', value: input * 9338 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 1055) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 1.055) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 252) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 0.252) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 0.2931) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.0002931) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 778.2) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 9338) + '</div>');
                 break;
             case 'ftlb':
-                result.push({ unit: 'J', value: input * 1.356 });
-                result.push({ unit: 'kJ', value: input / 738 });
-                result.push({ unit: 'cal', value: input / 3.086 });
-                result.push({ unit: 'kcal', value: input / 3086 });
-                result.push({ unit: 'Wh', value: input / 2655 });
-                result.push({ unit: 'kWh', value: input / 2655224 });
-                result.push({ unit: 'BTU', value: input / 778 });
-                result.push({ unit: 'inlb', value: input * 12 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 1.356) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 0.001356) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 0.324) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 0.000324) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 0.0003766) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.0000003766) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 0.001285) + '</div>');
+                result.push('<div class="inlb unit-text"><span class="result-text">英寸磅: </span><br>' + (input * 12) + '</div>');
                 break;
             case 'inlb':
-                result.push({ unit: 'J', value: input * 0.113 });
-                result.push({ unit: 'kJ', value: input / 8850 });
-                result.push({ unit: 'cal', value: input / 37.03 });
-                result.push({ unit: 'kcal', value: input / 37030 });
-                result.push({ unit: 'Wh', value: input / 31824 });
-                result.push({ unit: 'kWh', value: input / 31827800 });
-                result.push({ unit: 'BTU', value: input / 9338 });
-                result.push({ unit: 'ftlb', value: input / 12 });
+                result.push('<br><br><br><div class="J unit-text"><span class="result-text">焦耳：</span><br>' + (input * 0.113) + '</div>');
+                result.push('<div class="kj unit-text"><span class="result-text">千焦: </span><br>' + (input * 0.000113) + '</div>');
+                result.push('<div class="cal unit-text"><span class="result-text">卡路里: </span><br>' + (input * 0.027) + '</div>');
+                result.push('<div class="kcal unit-text"><span class="result-text">千卡路里: </span><br>' + (input * 0.000027) + '</div>');
+                result.push('<div class="Wh unit-text"><span class="result-text">瓦时: </span><br>' + (input * 0.0000314) + '</div>');
+                result.push('<div class="kWh unit-text"><span class="result-text">千瓦时: </span><br>' + (input * 0.0000000314) + '</div>');
+                result.push('<div class="BTU unit-text"><span class="result-text">英热: </span><br>' + (input * 0.000107) + '</div>');
+                result.push('<div class="ftlb unit-text"><span class="result-text">英尺磅: </span><br>' + (input * 0.08333) + '</div>');
                 break;
         }
-    document.getElementById('result').innerHTML = result.join('');
+        document.getElementById('result').innerHTML = result.join('');
     }
 
     document.getElementById('Energy-Input').addEventListener('input', function () {
