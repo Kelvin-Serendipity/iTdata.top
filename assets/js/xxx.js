@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var updateElements = document.querySelectorAll('.version-update'); // 选择带有类名 'version-update' 的元素
     if (updateElements.length > 0) {
         updateElements.forEach(function (element) {
-            element.textContent = '版本号：v1.2.3'; // 修改版本号
+            element.textContent = '版本号：v1.2.4'; // 修改版本号
         });
     }
 });
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //滚动公告条
 
     // 在这里定义公告内容
-    var announcement = "近期 1.2.3 更新公告：1、新增网站自制工具长度转换器和重量转换器  2、新增单位换算侧边栏  3、界面简约化  4、英文界面暂停更新 ____________________________ 点击此公告框 或 侧面固定内容条可查看往期所有更新内容";
+    var announcement = "近期 1.2.4 更新公告：1、新增多个网站自制工具  2、界面简约化  3、英文界面暂停更新 ____________________________ 点击此公告框 或 侧面固定内容条可查看往期所有更新内容";
 
     // 更新滚动公告的内容
     var marqueeText = document.getElementById('marqueeText');
