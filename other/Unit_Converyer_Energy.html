@@ -14,7 +14,7 @@
             background-color: #313131;
         }
 
-        .Length-text {
+        .Energy-text {
             text-align: center;
             font-size: 50px;
             font-weight: 700;
@@ -38,7 +38,7 @@
             background-color: #f1f1f1;
         }
 
-        #Length-unit {
+        #Energy-unit {
             position: absolute;
             box-sizing: border-box;
             margin-right: 5px;
@@ -54,11 +54,11 @@
             background-color: #d6d6d6;
         }
 
-        #Length-unit:hover {
+        #Energy-unit:hover {
             background-color: #f1f1f1;
         }
 
-        .Length-Enter {
+        .Energy-Enter {
             position: relative;
             width: 400px;
             height: 50px;
@@ -74,39 +74,39 @@
             color: #ffffff;
         }
 
-        .nm {
+        .J {
             background-color: #ff0000;
         }
 
-        .um {
+        .KJ {
             background-color: #1c741c;
         }
 
-        .mm {
+        .cal {
             background-color: #0000ff;
         }
 
-        .cm {
+        .kcal {
             background-color: #ff7b00;
         }
 
-        .dm {
+        .Wh {
             background-color: #ff00ff;
         }
 
-        .m {
+        .kWh {
             background-color: #491375;
         }
 
-        .km {
+        .BTU {
             background-color: #ff0000;
         }
 
-        .in {
+        .ftlb {
             background-color: #00575e;
         }
 
-        .ft {
+        .inlb {
             background-color: #99a6c5;
         }
 
@@ -182,15 +182,15 @@
 
 <body>
     <div class="container">
-        <div class="Length">
-            <h1 class="Length-text">能量转换器</h1>
+        <div class="Energy">
+            <h1 class="Energy-text">能量转换器</h1>
             <span class="span-a-text"><a class="a-text-1" href="./Unit_Converyer_Weight.html">重量转换器</a></span>
             <span class="span-a-text"><a class="a-text-2" href="./Unit_Converyer_Temp.html">温度转换器</a></span>
             <span class="span-a-text"><a class="a-text-3" href="./Unit_Converyer_Time.html">时间转换器</a></span>
             <span class="span-a-text"><a class="a-text-4" href="./Unit_Converyer_Data.html">数据转换器</a></span>
-            <span class="span-a-text"><a class="a-text-5" href="./Unit_Converyer_Length.html">长度转换器</a></span>
-            <div class="Length-Enter">
-                <input type="text" id="Length-Input" placeholder="请输入数字...">
+            <span class="span-a-text"><a class="a-text-5" href="./Unit_Converyer_Energy.html">长度转换器</a></span>
+            <div class="Energy-Enter">
+                <input type="text" id="Energy-Input" placeholder="请输入数字...">
                 <select name="Energy-unit" id="Energy-unit">
                     <option value="J">焦耳</option>
                     <option value="kJ">千焦</option>
@@ -208,117 +208,117 @@
     </div>
 </body>
 <script>
-    document.getElementById('Length-Input').addEventListener('input', convertLength);
-    document.getElementById('Length-unit').addEventListener('change', convertLength);
+    document.getElementById('Energy-Input').addEventListener('input', convertEnergy);
+    document.getElementById('Energy-unit').addEventListener('change', convertEnergy);
 
-    function convertLength() {
-        var input = parseFloat(document.getElementById('Length-Input').value);
-        var unit = document.getElementById('Length-unit').value;
+    function convertEnergy() {
+        var input = parseFloat(document.getElementById('Energy-Input').value);
+        var unit = document.getElementById('Energy-unit').value;
 
         var result = [];
         switch (unit) {
-            case 'nm':
-                result.push('<br><br><br><div class="um unit-text"><span class="result-text">微米：</span><br>' + (input / 1000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input / 1000000) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10000000) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100000000) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000000000) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000000000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25400000) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304800000) + '</div>');
+            case 'J':
+                result.push({ unit: 'kJ', value: input / 1000 });
+                result.push({ unit: 'cal', value: input / 4.184 });
+                result.push({ unit: 'kcal', value: input / 4184 });
+                result.push({ unit: 'Wh', value: input / 3600 });
+                result.push({ unit: 'kWh', value: input / 3600000 });
+                result.push({ unit: 'BTU', value: input / 1055 });
+                result.push({ unit: 'ftlb', value: input / 1.356 });
+                result.push({ unit: 'inlb', value: input / 0.113 });
                 break;
-            case 'um':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input / 1000) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10000) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100000) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000000) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25400) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304800) + '</div>');
+            case 'kJ':
+                result.push({ unit: 'J', value: input * 1000 });
+                result.push({ unit: 'cal', value: input * 239 });
+                result.push({ unit: 'kcal', value: input / 4.184 });
+                result.push({ unit: 'Wh', value: input / 3.6 });
+                result.push({ unit: 'kWh', value: input / 3600 });
+                result.push({ unit: 'BTU', value: input * 0.9478 });
+                result.push({ unit: 'ftlb', value: input * 738 });
+                result.push({ unit: 'inlb', value: input * 8850 });
                 break;
-            case 'mm':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input / 10) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 100) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 1000) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 25.4) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 304.8) + '</div>');
+            case 'cal':
+                result.push({ unit: 'J', value: input * 4.184 });
+                result.push({ unit: 'kJ', value: input / 239 });
+                result.push({ unit: 'kcal', value: input / 1000 });
+                result.push({ unit: 'Wh', value: input / 860 });
+                result.push({ unit: 'kWh', value: input / 860420 });
+                result.push({ unit: 'BTU', value: input / 252 });
+                result.push({ unit: 'ftlb', value: input * 3.086 });
+                result.push({ unit: 'inlb', value: input * 37.03 });
                 break;
-            case 'cm':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 10000000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 10000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 10) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input / 10) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 100) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 100000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 2.54) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 30.48) + '</div>');
+            case 'kcal':
+                result.push({ unit: 'J', value: input * 4184 });
+                result.push({ unit: 'kJ', value: input * 4.184 });
+                result.push({ unit: 'cal', value: input * 1000 });
+                result.push({ unit: 'Wh', value: input * 1.162 });
+                result.push({ unit: 'kWh', value: input / 860 });
+                result.push({ unit: 'BTU', value: input * 3.968 });
+                result.push({ unit: 'ftlb', value: input * 3086 });
+                result.push({ unit: 'inlb', value: input * 37030 });
                 break;
-            case 'dm':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 100000000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 100000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 100) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 10) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 10) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 10000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input / 0.254) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 3.048) + '</div>');
+            case 'Wh':
+                result.push({ unit: 'J', value: input * 3600 });
+                result.push({ unit: 'kJ', value: input * 3.6 });
+                result.push({ unit: 'cal', value: input * 860 });
+                result.push({ unit: 'kcal', value: input / 1.162 });
+                result.push({ unit: 'kWh', value: input / 1000 });
+                result.push({ unit: 'BTU', value: input * 3.412 });
+                result.push({ unit: 'ftlb', value: input * 2655 });
+                result.push({ unit: 'inlb', value: input * 31824 });
                 break;
-            case 'm':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 1000) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 100) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 10) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 1000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 39.37) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input * 3.281) + '</div>');
+            case 'kWh':
+                result.push({ unit: 'J', value: input * 3600000 });
+                result.push({ unit: 'kJ', value: input * 3600 });
+                result.push({ unit: 'cal', value: input * 860420 });
+                result.push({ unit: 'kcal', value: input * 860 });
+                result.push({ unit: 'Wh', value: input * 1000 });
+                result.push({ unit: 'BTU', value: input * 3412 });
+                result.push({ unit: 'ftlb', value: input * 2655224 });
+                result.push({ unit: 'inlb', value: input * 31827800 });
                 break;
-            case 'km':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 1000000000000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 1000000000) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 1000000) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 100000) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 10000) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input * 1000) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 39370) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input * 3281) + '</div>');
+            case 'BTU':
+                result.push({ unit: 'J', value: input * 1055 });
+                result.push({ unit: 'kJ', value: input * 1.055 });
+                result.push({ unit: 'cal', value: input * 252 });
+                result.push({ unit: 'kcal', value: input / 3.968 });
+                result.push({ unit: 'Wh', value: input / 3.412 });
+                result.push({ unit: 'kWh', value: input / 3412 });
+                result.push({ unit: 'ftlb', value: input * 778 });
+                result.push({ unit: 'inlb', value: input * 9338 });
                 break;
-            case 'in':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 25400000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 25400) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 25.4) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 2.54) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 0.254) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 39.37) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 39370) + '</div>');
-                result.push('<div class="ft unit-text"><span class="result-text">英尺: </span><br>' + (input / 12) + '</div>');
+            case 'ftlb':
+                result.push({ unit: 'J', value: input * 1.356 });
+                result.push({ unit: 'kJ', value: input / 738 });
+                result.push({ unit: 'cal', value: input / 3.086 });
+                result.push({ unit: 'kcal', value: input / 3086 });
+                result.push({ unit: 'Wh', value: input / 2655 });
+                result.push({ unit: 'kWh', value: input / 2655224 });
+                result.push({ unit: 'BTU', value: input / 778 });
+                result.push({ unit: 'inlb', value: input * 12 });
                 break;
-            case 'ft':
-                result.push('<br><br><br><div class="nm unit-text"><span class="result-text">纳米：</span><br>' + (input * 304800000) + '</div>');
-                result.push('<div class="um unit-text"><span class="result-text">微米: </span><br>' + (input * 304800) + '</div>');
-                result.push('<div class="mm unit-text"><span class="result-text">毫米: </span><br>' + (input * 304.8) + '</div>');
-                result.push('<div class="cm unit-text"><span class="result-text">厘米: </span><br>' + (input * 30.48) + '</div>');
-                result.push('<div class="dm unit-text"><span class="result-text">分米: </span><br>' + (input * 3.048) + '</div>');
-                result.push('<div class="m unit-text"><span class="result-text">米: </span><br>' + (input / 3.281) + '</div>');
-                result.push('<div class="km unit-text"><span class="result-text">千米: </span><br>' + (input / 3281) + '</div>');
-                result.push('<div class="in unit-text"><span class="result-text">英寸: </span><br>' + (input * 12) + '</div>');
+            case 'inlb':
+                result.push({ unit: 'J', value: input * 0.113 });
+                result.push({ unit: 'kJ', value: input / 8850 });
+                result.push({ unit: 'cal', value: input / 37.03 });
+                result.push({ unit: 'kcal', value: input / 37030 });
+                result.push({ unit: 'Wh', value: input / 31824 });
+                result.push({ unit: 'kWh', value: input / 31827800 });
+                result.push({ unit: 'BTU', value: input / 9338 });
+                result.push({ unit: 'ftlb', value: input / 12 });
                 break;
         }
-        document.getElementById('result').innerHTML = result.join('');
+    document.getElementById('result').innerHTML = result.join('');
     }
 
-    document.getElementById('Length-Input').addEventListener('input', function () {
-        var input = document.getElementById('Length-Input').value;
+    document.getElementById('Energy-Input').addEventListener('input', function () {
+        var input = document.getElementById('Energy-Input').value;
         var resultDiv = document.getElementById('result');
         if (input === '' || isNaN(input)) {
             resultDiv.style.display = 'none';
         } else {
             resultDiv.style.display = 'block';
-            convertLength();
+            convertEnergy();
         }
     });
 </script>
