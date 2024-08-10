@@ -19,12 +19,22 @@
   margin-top: 20px;
   border-radius: 8px;
   margin-left: 18%;
-  border: 2px solid #000000;
+  border: 1px solid rgb(230, 230, 230);
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.center-search-container:focus-within {
   background-color: #ffffff;
 }
 
-.center-search-container:hover {
-  background-color: #f8f8f8;
+.center-search-container:hover{
+  background-color: #ffffff;
+}
+
+.nav-search-input:focus {
+  outline: none;
+  background-color: transparent;
 }
 
 .center-search-container .nav-search-content {
@@ -52,12 +62,14 @@
   height: 30px;
   border-radius: 6px;
   cursor: pointer;
+  background-color: #ececec;
   transition: background-color 0.3s;
 }
 
 .center-search-container .nav-search-button:hover {
-  background-color: #cbcbcb;
+  background-color: #ffffff;
 }
+
 
 .form-input {
   flex: 1;
