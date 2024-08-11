@@ -1,4 +1,5 @@
 {
   "commentTranslate.source": "Bing",
-  "commentTranslate.multiLineMerge": true
+  "commentTranslate.multiLineMerge": true,
+  "liveServer.settings.port": 5501
 }
